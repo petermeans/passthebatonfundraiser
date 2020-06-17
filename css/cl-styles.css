@@ -1,0 +1,39 @@
+.cl-donor-name-box{
+    margin:50px 0;
+}
+.cl-cover-container{
+    max-width:42em;
+}
+
+h1.cl-big-donor-name{
+    font-family: 'Norican', serif;
+
+    font-size:4em;
+    color: #eaeaea;
+    max-width: 100%;
+    width: 290px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1;
+}
+
+.cl-text-shadow { 
+    font: bold 52px Helvetica, Arial, Sans-Serif;
+    text-shadow: 1px 1px #CB4B16, 
+                 2px 2px #CB4B16, 
+                 3px 3px #CB4B16;
+ }
+.cl-big-donor-message{
+
+}
+.cl-big-action-button{
+    margin-top: -70px;
+    margin-bottom:80px;
+}
+.cl-baton-big{
+    width: 180px;
+    height: 180px;
+    display: block;
+    margin: 20px auto;
+    fill: white;
+}
