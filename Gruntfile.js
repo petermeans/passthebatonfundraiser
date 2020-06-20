@@ -16,7 +16,7 @@ module.exports = function(grunt) {
 		  }
     },
     clean: {
-      all:['dist/'],
+      all:['dist/**'],
       css:['dist/css/*.css'],
       js:['dist/js/*.js'],
       html:['dist/*.html']
@@ -55,12 +55,24 @@ module.exports = function(grunt) {
         ],
       },
     },
+    browserSync: {
+      bsFiles: {
+          src : 'dist/'
+      },
+      options: {
+          server: {
+              baseDir: "dist/"
+          }
+      }
+    }  
   });
 
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-includes');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-browser-sync');
+
 
 	// grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.registerTask('default',['dist','watch']);
