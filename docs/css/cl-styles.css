@@ -73,9 +73,15 @@ h1.cl-big-donor-name{
     width: 100%;
     max-width: 230px;
     display:inline-block;
-    margin-top:20px
+    margin-top:30px
 }
 
+
+
+/* instructions page */
+.cl-big-instruction-list>li{
+    margin-bottom:20px;
+}
 
 
 
@@ -84,3 +90,5 @@ h1.cl-big-donor-name{
     list-style: none;
     padding-left:0;
 }
+
+
