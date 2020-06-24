@@ -1,3 +1,7 @@
+body.cl-body{
+    font-family: 'Oswald', Arial, Helvetica, sans-serif;
+}
+
 .cl-donor-name-box{
     margin:50px 0;
 }
@@ -12,12 +16,12 @@
 
 
 h1.cl-big-donor-name{
-    font-family: 'Norican', serif;
-
-    font-size:4em;
+    /* font-family: 'Norican', serif; */
+    font-family: 'Shrikhand', serif;
+    font-size:3.3em;
     color: #eaeaea;
     max-width: 100%;
-    width: 290px;
+    width: 420px;
     margin-right: auto;
     margin-left: auto;
     line-height: 1;
@@ -32,6 +36,7 @@ h1.cl-big-donor-name{
 
 
 .cl-big-donor-message{
+    text-transform: uppercase;
 }
 
 .cl-button-box{
@@ -45,6 +50,7 @@ h1.cl-big-donor-name{
     margin:3px 0;
     min-height:40px;
     font-size: 23px;
+    text-transform: uppercase;
 }
 
 .cl-button-icon{
@@ -62,6 +68,15 @@ h1.cl-big-donor-name{
     padding-left: 8px;
     line-height: 1.2;
 }
+
+.cl-big-logo{
+    width: 100%;
+    max-width: 230px;
+    display:inline-block;
+    margin-top:20px
+}
+
+
 
 
 
