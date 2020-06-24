@@ -6,7 +6,7 @@ module.exports = function(grunt) {
 		includes: {
 		  files: {
 		    src: ['src/html/*.html'], // Source files
-		    dest: 'dist/', // Destination directory
+		    dest: 'docs/', // Destination directory
 		    flatten: true,
 		    cwd: '.',
 		    options: {
@@ -16,10 +16,10 @@ module.exports = function(grunt) {
 		  }
     },
     clean: {
-      all:['dist/**'],
-      css:['dist/css/*.css'],
-      js:['dist/js/*.js'],
-      html:['dist/*.html']
+      all:['docs/**'],
+      css:['docs/css/*.css'],
+      js:['docs/js/*.js'],
+      html:['docs/*.html']
     },
 		watch: {
 			includes: {
@@ -39,29 +39,29 @@ module.exports = function(grunt) {
       all: {
         files: [
           // includes files within path and its sub-directories
-          {expand: true, cwd: 'src/', src: ['css/**','fonts/**','js/**'], dest: 'dist/'},
+          {expand: true, cwd: 'src/', src: ['css/**','fonts/**','js/**'], dest: 'docs/'},
         ],
       },
       css: {
         files: [
           // includes files within path and its sub-directories
-          {expand: true, cwd: 'src/', src: ['css/**'], dest: 'dist/'},
+          {expand: true, cwd: 'src/', src: ['css/**'], dest: 'docs/'},
         ],
       },
       js: {
         files: [
           // includes files within path and its sub-directories
-          {expand: true, cwd: 'src/', src: ['js/**'], dest: 'dist/'},
+          {expand: true, cwd: 'src/', src: ['js/**'], dest: 'docs/'},
         ],
       },
     },
     browserSync: {
       bsFiles: {
-          src : 'dist/'
+          src : 'docs/'
       },
       options: {
           server: {
-              baseDir: "dist/"
+              baseDir: "docs/"
           }
       }
     }  
