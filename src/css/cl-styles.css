@@ -1,20 +1,29 @@
 body.cl-body{
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
+.cl-cover-container{
+    max-width:600px;
+    /* border: 1px solid white; */
+}
+.cl-ptb-logo{
+    width: 100%;
+    max-width: 300px;
+    display:inline-block;
+    /* margin-top:20px */
+}
+header.cl-header{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+/* Home Page */
+.cl-home-content{
+    text-align: center;
+}
 
 .cl-donor-name-box{
     margin:50px 0;
 }
-.cl-cover-container{
-    max-width:42em;
-}
-
-/* Pages */
-.cl-home-page{
-    text-align: center;
-}
-
-
 h1.cl-big-donor-name{
     /* font-family: 'Norican', serif; */
     font-family: 'Shrikhand', serif;
@@ -40,13 +49,13 @@ h1.cl-big-donor-name{
 }
 
 .cl-button-box{
-    margin-top:30px;
+    margin-top:60px;
 }
 .cl-big-action-button{
     margin-bottom:80px;
     padding:4px 20px;
     width: 100%;
-    max-width:250px;
+    max-width:280px;
     margin:3px 0;
     min-height:40px;
     font-size: 23px;
@@ -62,28 +71,45 @@ h1.cl-big-donor-name{
 }
 .cl-button-text{
     vertical-align: middle;
-    width: 110px;
+    width: 120px;
     display: inline-block;
     text-align: left;
     padding-left: 8px;
     line-height: 1.2;
 }
 
+.cl-big-logo-box{
+    margin-top: 60px;
+}
 .cl-big-logo{
     width: 100%;
     max-width: 230px;
     display:inline-block;
-    margin-top:30px
+    margin-bottom:30px
 }
 
 
 
 /* instructions page */
-.cl-big-instruction-list>li{
+/* .cl-big-instruction-list>li{
     margin-bottom:20px;
+} */
+.cl-thank-you{
+    color:white;
 }
+h1.cl-instructions-lead-in,h2.cl-instructions-lead-in{
+    font-style: italic;
+    font-size: 1.4em;
 
+}
+.cl-3-steps-heading{
+    text-align:center;
+}
+.cl-3-steps-heading span{}
 
+.cl-instructions-list li{
+    margin:20px 0;
+}
 
 
 .cl-no-style-list{
