@@ -19,7 +19,8 @@ module.exports = function(grunt) {
       all:['docs/**'],
       css:['docs/css/*.css'],
       js:['docs/js/*.js'],
-      html:['docs/*.html']
+      html:['docs/*.html'],
+      svg:['docs/*.svg']
     },
 		watch: {
 			includes: {
@@ -33,6 +34,10 @@ module.exports = function(grunt) {
       js: {
 				files: 'src/js/*.js',
 				tasks: ['clean:js','copy:js']
+			},
+      svg: {
+				files: 'src/svg/**',
+				tasks: ['clean:svg','copy:svg']
 			},
     },
     copy: {
@@ -52,6 +57,12 @@ module.exports = function(grunt) {
         files: [
           // includes files within path and its sub-directories
           {expand: true, cwd: 'src/', src: ['js/**'], dest: 'docs/'},
+        ],
+      },
+      svg: {
+        files: [
+          // includes files within path and its sub-directories
+          {expand: true, cwd: 'src/', src: ['svg/**'], dest: 'docs/'},
         ],
       },
     },
