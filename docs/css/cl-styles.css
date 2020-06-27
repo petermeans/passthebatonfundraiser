@@ -128,11 +128,13 @@ h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
     width: 280px;
 }
 .cl-icon-row{
-    padding: 60px 0;
+    /* padding: 60px 0; */
+    padding: 10px 0;
 }
 .cl-dotted-line-image{
     max-width:100%;
-    width:320px;
+    /* width:320px; */
+    width:150px;
 }
 
 
