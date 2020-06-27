@@ -1,3 +1,8 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/* asdfs */
 body.cl-body {
     font-family: 'Oswald', Arial, Helvetica, sans-serif;
 }
@@ -148,6 +153,16 @@ h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
     margin:100px 0;
 }
 
+
+
+/* step 2 page 2 */
+.cl-iframe-box{
+    background-color:rgb(230,230,230);
+    border-radius:10px;
+    padding: 0;
+
+    display: inline-block;
+}
 
 
 /* .cl-circle-icon-box {
