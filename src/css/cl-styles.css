@@ -25,7 +25,7 @@ header.cl-header {
     text-align: center;
 }
 
-.cl-donor-name-box {
+.cl-home-inner-content-box{
     margin: 50px 0;
 }
 
@@ -144,7 +144,9 @@ h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
     list-style: none;
     padding-left: 0;
 }
-
+.cl-spinner-box{
+    margin:100px 0;
+}
 
 
 

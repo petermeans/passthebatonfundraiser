@@ -4,19 +4,25 @@ include "pieces/header.html"
   $(function () {
     googleSheetsModule.init();
     googleSheetsModule.getLatestRunner();
-    //asdf
   })
 </script>
 <main role="main" class="inner cover cl-home-content text-center">
-  <div class="cl-donor-name-box">
+  <div class="cl-spinner-box" data-ui="spinner-box">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>  
+    <p>Loading...</p>
+  </div>
+  <div class="cl-home-inner-content-box d-none"data-ui="content-box"> 
     <p class="cl-big-donor-message lead">In the race to stop starvation</p>
-    <h1 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h1>
+    <h1 data-ui="name-box" class="cl-big-donor-name cl-text-shadow">Crazy Love Church</h1>
     <p class="cl-big-donor-message lead">is passing the baton...</p>
     <div class="cl-button-box">
       <p>
         <a href="step-1.html" class="btn btn-lg btn-warning cl-big-action-button">
           include "pieces/icons/baton-circle-svg.html"
           <span class="cl-button-text">Take the baton</span>
+          
         </a>
       </p>
       <p>
