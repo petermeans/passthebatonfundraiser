@@ -9,7 +9,6 @@ body.cl-body {
 
 .cl-cover-container {
     max-width: 600px;
-    /* border: 1px solid white; */
 }
 
 .cl-ptb-logo {
@@ -35,7 +34,7 @@ header.cl-header {
 
 h1.cl-big-runner-name, h2.cl-big-runner-name {
     font-family: 'Shrikhand', serif;
-    font-size: 3.3em;
+    font-size: 3em;
     color: #eaeaea;
     max-width: 100%;
     width: 420px;
@@ -96,7 +95,6 @@ h1.cl-big-runner-name, h2.cl-big-runner-name {
     margin-bottom: 30px
 }
 
-/* ASDFASDF */
 /* Steps Pages */
 .cl-blurb{
     text-transform: uppercase;
@@ -126,34 +124,6 @@ h1.cl-big-runner-name, h2.cl-big-runner-name {
     padding: 14px 40px;
     font-size: 1.8em;        
 }
-
-
-/* About Page */
-
-
-
-
-/* 
-.cl-thank-you {
-    color: white;
-}
-
-h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
-    font-style: italic;
-    font-size: 1.4em;
-}
-
-.cl-3-steps-heading {
-    text-align: center;
-}
-
-.cl-3-steps-heading span {}
-
-.cl-instructions-list li {
-    margin: 20px 0;
-} */
-
-
 
 /* step 2*/
 .cl-iframe-box {
@@ -273,3 +243,26 @@ h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
     margin-bottom:20px;
 } */
 
+
+
+
+
+/* 
+.cl-thank-you {
+    color: white;
+}
+
+h1.cl-instructions-lead-in, h2.cl-instructions-lead-in {
+    font-style: italic;
+    font-size: 1.4em;
+}
+
+.cl-3-steps-heading {
+    text-align: center;
+}
+
+.cl-3-steps-heading span {}
+
+.cl-instructions-list li {
+    margin: 20px 0;
+} */
