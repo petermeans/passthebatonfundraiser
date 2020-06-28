@@ -1,7 +1,9 @@
 include "pieces/nav-header.html"
 
-<main role="main" class="inner cover cl-step-1-content">
-  
+
+
+<main role="main" class="inner cover cl-step-1-content" data-ui="story-box">
+<!--   
   <div class="cl-wide-row cl-name-row cl-first-row">
     <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
   </div>
@@ -10,42 +12,28 @@ include "pieces/nav-header.html"
   </div>
 
   <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">John Harrison</h2>
+    <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
   </div>
-
   <div class="cl-wide-row cl-icon-row">
     <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
   </div>
-
 
   <div class="cl-wide-row cl-name-row">
     <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
   </div>
   <div class="cl-wide-row cl-icon-row">
-        <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
-  </div>
-
-  <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">John Harrison</h2>
-  </div>
-
-  <div class="cl-wide-row cl-icon-row">
-        <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
-  </div>
-
-
-
-
-
-  <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">Harris Smith</h2>
-  </div>
-
-  <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">Josh Notsmith</h2>
-  </div>
+    <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
+  </div> -->
 
 
 </main>
+
+<script>
+  $(function () {
+    googleSheetsModule.init();
+    googleSheetsModule.buildListOfRunners();
+  })
+</script>
+
 
 include "pieces/footer.html"

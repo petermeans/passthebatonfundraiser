@@ -36,19 +36,29 @@
 </header> -->
 
 <main role="main" class="inner cover cl-step-1-content">
+  <h2 class="cl-instructions-lead-in">You've just helped get food to the people who need it most right now.</h2>
   <h1 class="cl-thank-you text-center">Thank you!</h1>
-  <h2 class="cl-instructions-lead-in">You've just helped to feed those who need it most right now. On to the next
-    step...</h2>
+  <h2 class="cl-instructions-lead-in">There's just one more thing...</h2>
   <h2 class="cl-instruction-heading text-primary">
     <span class="cl-giant-number">Step 2: </span>
-    Join the story!
+    Pass the baton
   </h2>
+  <p>By filling out this form, you'll be adding your name to this site, and passing the baton on to the next person.</p>
+
+  <script>
+
+    const iframeLoaded=function(iframe){
+      console.log("its loaded!")
+      window.scrollTo(0,0)
+    }
+  </script>
 
   <div class="cl-wide-row">
     <div class="cl-iframe-box">
       <!--  -->
       <iframe
         src="https://docs.google.com/forms/d/e/1FAIpQLSedKIzfE6U8SvWo8ed5ElMZ2AxYq390VWX2iH5oM4S5xJV_2g/viewform?embedded=true"
+        onload="iframeLoaded(this)"
         width="380" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
     </div>
 
@@ -67,3 +77,4 @@
   <!-- asdfsd -->
 </body>
 </html>
+

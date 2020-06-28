@@ -4,10 +4,11 @@ const googleSheetsModule = (function () {
         sheetRange: 'ResponsesSheet1!C1:D',
         gapiLoadedPromise: null,
         loading: true,
-        dom:{
+        dom: {
             $nameBox: $('[data-ui="name-box"]'),
             $contentBox: $('[data-ui="content-box"]'),
-            $spinnerBox:$('[data-ui="spinner-box"]')
+            $spinnerBox: $('[data-ui="spinner-box"]'),
+            $storyBox: $('[data-ui="story-box"]')
         }
     }
 
@@ -88,11 +89,43 @@ const googleSheetsModule = (function () {
         })
     }
 
-    const hideBox = function($box){
+
+    // ASDFASDF - RIGHT HERE! YOU JUST DID THIS!
+    const buildListOfRunners = function () {
+        s.gapiLoadedPromise.then(() => {
+            getSheetData().then(() => {
+                console.log('got the data!')
+                state.sheetData.nice.forEach((runner,i) => {
+                    addRunner(runner)
+                    if(i < (state.sheetData.nice.length -1)){
+                        addIcon()
+                    }
+                })
+            });
+        })
+    }
+
+    const addRunner = function (data,i) {
+        const $runnerMarkup = $(`
+            <div class="cl-wide-row cl-name-row">
+                <h2 class="cl-big-donor-name cl-text-shadow">${data.name}</h2>
+            </div>`);
+        s.dom.$storyBox.append($runnerMarkup)
+    }
+
+    const addIcon = function () {
+        const $iconMarkup = $(`
+            <div class="cl-wide-row cl-icon-row">
+                <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
+            </div>`);
+        s.dom.$storyBox.append($iconMarkup)
+    }
+
+    const hideBox = function ($box) {
         $box.addClass('d-none')
     }
 
-    const showBox = function($box){
+    const showBox = function ($box) {
         console.log('show box....')
         console.log($box)
         $box.removeClass('d-none')
@@ -103,15 +136,10 @@ const googleSheetsModule = (function () {
         state,
         init,
         getSheetData,
-        getLatestRunner
+        getLatestRunner,
+        buildListOfRunners
     }
 })();
-
-
-
-
-
-
 
 
     // function listMajors() {
