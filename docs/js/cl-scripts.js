@@ -89,29 +89,67 @@ const googleSheetsModule = (function () {
         })
     }
 
-
-    // ASDFASDF - RIGHT HERE! YOU JUST DID THIS!
     const buildListOfRunners = function () {
         s.gapiLoadedPromise.then(() => {
             getSheetData().then(() => {
                 console.log('got the data!')
-                state.sheetData.nice.forEach((runner,i) => {
+                state.sheetData.nice.forEach((runner, i) => {
                     addRunner(runner)
-                    if(i < (state.sheetData.nice.length -1)){
+                    if (i < (state.sheetData.nice.length - 1)) {
                         addIcon()
                     }
                 })
+                hideBox(s.dom.$spinnerBox)
+                showBox(s.dom.$storyBox)
+                addScrollInListener();
             });
         })
     }
 
-    const addRunner = function (data,i) {
-        const $runnerMarkup = $(`
-            <div class="cl-wide-row cl-name-row">
-                <h2 class="cl-big-donor-name cl-text-shadow">${data.name}</h2>
-            </div>`);
+    const addRunner = function (data, i) {
+        //asdf - need to make this comment conditional!
+        let runnerMarkupString = `
+        <div class="cl-wide-row cl-name-row">
+            <h2 class="cl-big-runner-name cl-text-shadow">${data.name}</h2>`
+        if (data.comment && data.comment.length > 0) {
+            runnerMarkupString += `<p class="cl-runner-comment invisible cl-scroll-in">"${data.comment}"</p>`
+        }
+        runnerMarkupString += `</div>`
+        const $runnerMarkup = $(runnerMarkupString);
+
         s.dom.$storyBox.append($runnerMarkup)
     }
+
+    const addScrollInListener = function () {
+        var win = $(window);
+        var allMods = $(".cl-scroll-in");
+
+        // Already visible modules
+        allMods.each(function (i, el) {
+            console.log('found one 2!')
+            var el = $(el);
+            if (el.visible(true)) {
+                el.removeClass("invisible");
+                el.addClass("slide-in-right");
+            }
+        });
+
+        // 
+        win.scroll(function (event) {
+            console.log('yaggada 2')
+            allMods.each(function (i, el) {
+                var el = $(el);
+                if (el.visible(true)) {
+                    el.removeClass("invisible");
+
+                    el.addClass("slide-in-right");
+                }
+            });
+
+        });
+    }
+
+
 
     const addIcon = function () {
         const $iconMarkup = $(`
@@ -126,8 +164,6 @@ const googleSheetsModule = (function () {
     }
 
     const showBox = function ($box) {
-        console.log('show box....')
-        console.log($box)
         $box.removeClass('d-none')
     }
 
@@ -140,30 +176,3 @@ const googleSheetsModule = (function () {
         buildListOfRunners
     }
 })();
-
-
-    // function listMajors() {
-    //     gapi.client.sheets.spreadsheets.values
-    //         .get({
-    //             spreadsheetId: "1BxiMVs0XRA5nFMdKvBdBZjgmUUqptlbs74OgvE2upms",
-    //             range: "Class Data!A2:E",
-    //         })
-    //         .then(
-    //             function (response) {
-    //                 var range = response.result;
-    //                 if (range.values.length > 0) {
-    //                     appendPre("Name, Major:");
-    //                     for (i = 0; i < range.values.length; i++) {
-    //                         var row = range.values[i];
-    //                         // Print columns A and E, which correspond to indices 0 and 4.
-    //                         appendPre(row[0] + ", " + row[4]);
-    //                     }
-    //                 } else {
-    //                     appendPre("No data found.");
-    //                 }
-    //             },
-    //             function (response) {
-    //                 appendPre("Error: " + response.result.error.message);
-    //             }
-    //         );
-    // }

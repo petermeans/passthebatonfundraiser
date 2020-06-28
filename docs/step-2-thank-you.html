@@ -12,8 +12,39 @@
   <link rel="stylesheet" href="css/cl-styles.css">
   <title>Document</title>
   <script src="js/jquery.min.js"></script>
+  <script>
+    (function ($) {
+
+      /**
+       * Copyright 2012, Digital Fusion
+       * Licensed under the MIT license.
+       * http://teamdf.com/jquery-plugins/license/
+       *
+       * @author Sam Sehnert
+       * @desc A small plugin that checks whether elements are within
+       *     the user visible viewport of a web browser.
+       *     only accounts for vertical position, not horizontal.
+       */
+
+      $.fn.visible = function (partial) {
+
+        var $t = $(this),
+          $w = $(window),
+          viewTop = $w.scrollTop(),
+          viewBottom = viewTop + $w.height(),
+          _top = $t.offset().top,
+          _bottom = _top + $t.height(),
+          compareTop = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+      };
+
+    })(jQuery);
+  </script>
   <script src="js/cl-gs-scripts.js"></script>
- 
+
   <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 </head>
@@ -26,42 +57,34 @@
       </a>
     </header>
 
-<!-- <header class="masthead mb-auto">
-    <div class="inner">
-        <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-        </nav>
+<main role="main" class="inner cover cl-step-2-content">
+  <div class="cl-blurb-box">
+    <h1 class="cl-giant-step-text text-white">Thank you!</h1>
+    <p class="cl-blurb">
+      By donating you took the baton in the race to stop hunger. Now it's time to pass the baton...
+    </p>
+    <h1 class="cl-giant-step-text text-warning">Step 2:</h1>
+    <h2 class="cl-fancy-subheading text-warning mb-3">Add your name to the team and pass the baton to
+      the next person</h2>
+    <p class="cl-blurb mb-4">
+      After you've filled out this form, you can click on the logo at the top of this page to get back to the main
+      page.
+    </p>
+    <script>
+      const iframeLoaded = function (iframe) {
+        console.log("its loaded!")
+        window.scrollTo(0, 0)
+      }
+    </script>
+
+    <div class="cl-wide-row">
+      <div class="cl-iframe-box">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSedKIzfE6U8SvWo8ed5ElMZ2AxYq390VWX2iH5oM4S5xJV_2g/viewform?embedded=true"
+          onload="iframeLoaded(this)" width="380" height="880" frameborder="0" marginheight="0"
+          marginwidth="0">Loading…</iframe>
+      </div>
     </div>
-</header> -->
-
-<main role="main" class="inner cover cl-step-1-content">
-  <h2 class="cl-instructions-lead-in">You've just helped get food to the people who need it most right now.</h2>
-  <h1 class="cl-thank-you text-center">Thank you!</h1>
-  <h2 class="cl-instructions-lead-in">There's just one more thing...</h2>
-  <h2 class="cl-instruction-heading text-primary">
-    <span class="cl-giant-number">Step 2: </span>
-    Pass the baton
-  </h2>
-  <p>By filling out this form, you'll be adding your name to this site, and passing the baton on to the next person.</p>
-
-  <script>
-
-    const iframeLoaded=function(iframe){
-      console.log("its loaded!")
-      window.scrollTo(0,0)
-    }
-  </script>
-
-  <div class="cl-wide-row">
-    <div class="cl-iframe-box">
-      <!--  -->
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSedKIzfE6U8SvWo8ed5ElMZ2AxYq390VWX2iH5oM4S5xJV_2g/viewform?embedded=true"
-        onload="iframeLoaded(this)"
-        width="380" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
-    </div>
-
   </div>
 </main>
 
@@ -77,4 +100,3 @@
   <!-- asdfsd -->
 </body>
 </html>
-

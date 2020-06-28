@@ -1,34 +1,34 @@
-include "pieces/nav-header.html"
+include "pieces/header.html"
 
-<main role="main" class="inner cover cl-step-1-content">
-  <h2 class="cl-instructions-lead-in">You've just helped get food to the people who need it most right now.</h2>
-  <h1 class="cl-thank-you text-center">Thank you!</h1>
-  <h2 class="cl-instructions-lead-in">There's just one more thing...</h2>
-  <h2 class="cl-instruction-heading text-primary">
-    <span class="cl-giant-number">Step 2: </span>
-    Pass the baton
-  </h2>
-  <p>By filling out this form, you'll be adding your name to this site, and passing the baton on to the next person.</p>
+<main role="main" class="inner cover cl-step-2-content">
+  <div class="cl-blurb-box">
+    <h1 class="cl-giant-step-text text-white">Thank you!</h1>
+    <p class="cl-blurb">
+      By donating you took the baton in the race to stop hunger. Now it's time to pass the baton...
+    </p>
+    <h1 class="cl-giant-step-text text-warning">Step 2:</h1>
+    <h2 class="cl-fancy-subheading text-warning mb-3">Add your name to the team and pass the baton to
+      the next person</h2>
+    <p class="cl-blurb mb-4">
+      After you've filled out this form, you can click on the logo at the top of this page to get back to the main
+      page.
+    </p>
+    <script>
+      const iframeLoaded = function (iframe) {
+        console.log("its loaded!")
+        window.scrollTo(0, 0)
+      }
+    </script>
 
-  <script>
-
-    const iframeLoaded=function(iframe){
-      console.log("its loaded!")
-      window.scrollTo(0,0)
-    }
-  </script>
-
-  <div class="cl-wide-row">
-    <div class="cl-iframe-box">
-      <!--  -->
-      <iframe
-        src="https://docs.google.com/forms/d/e/1FAIpQLSedKIzfE6U8SvWo8ed5ElMZ2AxYq390VWX2iH5oM4S5xJV_2g/viewform?embedded=true"
-        onload="iframeLoaded(this)"
-        width="380" height="880" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    <div class="cl-wide-row">
+      <div class="cl-iframe-box">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLSedKIzfE6U8SvWo8ed5ElMZ2AxYq390VWX2iH5oM4S5xJV_2g/viewform?embedded=true"
+          onload="iframeLoaded(this)" width="380" height="880" frameborder="0" marginheight="0"
+          marginwidth="0">Loading…</iframe>
+      </div>
     </div>
-
   </div>
 </main>
 
 include "pieces/footer.html"
-

@@ -73,7 +73,8 @@ module.exports = function(grunt) {
       options: {
           server: {
               baseDir: "docs/"
-          }
+          },
+          ghostMode: false
       }
     }  
   });

@@ -12,8 +12,39 @@
   <link rel="stylesheet" href="css/cl-styles.css">
   <title>Document</title>
   <script src="js/jquery.min.js"></script>
+  <script>
+    (function ($) {
+
+      /**
+       * Copyright 2012, Digital Fusion
+       * Licensed under the MIT license.
+       * http://teamdf.com/jquery-plugins/license/
+       *
+       * @author Sam Sehnert
+       * @desc A small plugin that checks whether elements are within
+       *     the user visible viewport of a web browser.
+       *     only accounts for vertical position, not horizontal.
+       */
+
+      $.fn.visible = function (partial) {
+
+        var $t = $(this),
+          $w = $(window),
+          viewTop = $w.scrollTop(),
+          viewBottom = viewTop + $w.height(),
+          _top = $t.offset().top,
+          _bottom = _top + $t.height(),
+          compareTop = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+      };
+
+    })(jQuery);
+  </script>
   <script src="js/cl-gs-scripts.js"></script>
- 
+
   <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 </head>
@@ -25,50 +56,25 @@
         <img class="cl-ptb-logo" src="images/ptb-logo-2.png" alt="">
       </a>
     </header>
-
-<!-- <header class="masthead mb-auto">
-    <div class="inner">
-        <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-        </nav>
-    </div>
-</header> -->
-
-
-
-<main role="main" class="inner cover cl-step-1-content" data-ui="story-box">
-<!--   
-  <div class="cl-wide-row cl-name-row cl-first-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
-  </div>
-  <div class="cl-wide-row cl-icon-row">
-    <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
-  </div>
-
-  <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
-  </div>
-  <div class="cl-wide-row cl-icon-row">
-    <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
-  </div>
-
-  <div class="cl-wide-row cl-name-row">
-    <h2 class="cl-big-donor-name cl-text-shadow">Samantha Doe</h2>
-  </div>
-  <div class="cl-wide-row cl-icon-row">
-    <img class="cl-dotted-line-image" src="svg/dottedlines/v2/line-baton-arrow.svg" alt="">
-  </div> -->
-
-
-</main>
-
 <script>
   $(function () {
     googleSheetsModule.init();
     googleSheetsModule.buildListOfRunners();
   })
 </script>
+<main role="main" class="inner cover cl-home-content cl-main-content">
+  <div class="cl-spinner-box" data-ui="spinner-box">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>  
+    <p>Loading...</p>
+  </div>
+  <main role="main" class="inner cover cl-progress-content d-none" data-ui="story-box">
+    <p class="cl-blurb">Bellow you'll see each person on the team who has carried the baton in the race to stop starvation.</p>
+  </main>
+</main>
+
+
 
 
   

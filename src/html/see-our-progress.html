@@ -1,0 +1,23 @@
+include "pieces/header.html"  
+<script>
+  $(function () {
+    googleSheetsModule.init();
+    googleSheetsModule.buildListOfRunners();
+  })
+</script>
+<main role="main" class="inner cover cl-home-content cl-main-content">
+  <div class="cl-spinner-box" data-ui="spinner-box">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>  
+    <p>Loading...</p>
+  </div>
+  <main role="main" class="inner cover cl-progress-content d-none" data-ui="story-box">
+    <p class="cl-blurb">Bellow you'll see each person on the team who has carried the baton in the race to stop starvation.</p>
+  </main>
+</main>
+
+
+
+
+include "pieces/footer.html"

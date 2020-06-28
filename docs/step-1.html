@@ -12,8 +12,39 @@
   <link rel="stylesheet" href="css/cl-styles.css">
   <title>Document</title>
   <script src="js/jquery.min.js"></script>
+  <script>
+    (function ($) {
+
+      /**
+       * Copyright 2012, Digital Fusion
+       * Licensed under the MIT license.
+       * http://teamdf.com/jquery-plugins/license/
+       *
+       * @author Sam Sehnert
+       * @desc A small plugin that checks whether elements are within
+       *     the user visible viewport of a web browser.
+       *     only accounts for vertical position, not horizontal.
+       */
+
+      $.fn.visible = function (partial) {
+
+        var $t = $(this),
+          $w = $(window),
+          viewTop = $w.scrollTop(),
+          viewBottom = viewTop + $w.height(),
+          _top = $t.offset().top,
+          _bottom = _top + $t.height(),
+          compareTop = partial === true ? _bottom : _top,
+          compareBottom = partial === true ? _top : _bottom;
+
+        return ((compareBottom <= viewBottom) && (compareTop >= viewTop));
+
+      };
+
+    })(jQuery);
+  </script>
   <script src="js/cl-gs-scripts.js"></script>
- 
+
   <script async defer src="https://apis.google.com/js/api.js" onload="this.onload=function(){};handleClientLoad()"
     onreadystatechange="if (this.readyState === 'complete') this.onload()"></script>
 </head>
@@ -26,24 +57,24 @@
       </a>
     </header>
 
-<!-- <header class="masthead mb-auto">
-    <div class="inner">
-        <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="index.html">Home</a>
-            <a class="nav-link" href="about.html">About</a>
-        </nav>
-    </div>
-</header> -->
-
 <main role="main" class="inner cover cl-step-1-content">
-  <h1 class="cl-instructions-lead-in">So here's what you do....</h1>
-  <h2 class="cl-instructions-heading text-primary">
-    <span class="cl-giant-number">Step 1: </span>
-    Make a donation </h2>
-  <ul class="cl-instructions-list">
-    <li><a href="https://www.impactnations.com/product/358-CRAZYLOVE-COVID/crazy-love-isaiah-58-feeding-response" class="btn btn-lg btn-success">Click here to donate online</a></li>
-    <li>Give what you can! The minimum amount for the online giving form is <strong class="text-success">$5</strong>, but we know money can be tight! If this is too much for you, or if you'd rather donate in another way (like cash or check) pease contact us at <a href="mailto:contact@crazylovechurch.com">contact@crazylovechurch.com</a> and we'll make it work!</contact></li>
-  </ul>
+  <div class="cl-blurb-box">
+    <p class="cl-blurb">
+      As a result of the global coronavirus pandemic, the world's most vulnerable are experiencing a devastating food
+      shortage. With over 750,000 meals and counting, our friends at <span class="text-primary">Impact Nations</span> are
+      meeting this need. Want to join the team?! Here's what you do...
+    </p>
+    <h1 class="cl-giant-step-text text-warning">Step 1:</h1>
+    <h2 class="cl-fancy-subheading text-warning">Take the baton by donating!</h2>
+    <p class="text-center mt-3">
+      <a href="https://www.impactnations.com/product/358-CRAZYLOVE-COVID/crazy-love-isaiah-58-feeding-response"
+        class="btn btn-success cl-seriously-huge-button">DONATE ONLINE</a>
+    </p>
+    <p class="cl-blurb mt-4">
+      Give what you can! The minimum amount for online giving is $5, but if you would like to give a smaller amount, or you would rather give via cash or check, please contact us at <a href="mailto:contact@crazylovechurch.com">contact@crazylovechurch.com</a> and we’ll make it happen! 100% of your donation will go toward food!
+    </p>
+    <h2 class="cl-fancy-subheading cl-a-bit-smaller text-warning mt-5">Join us in the race to stop starvation!</h2>
+  </div> 
 </main>
 
   
@@ -58,3 +89,4 @@
   <!-- asdfsd -->
 </body>
 </html>
+
