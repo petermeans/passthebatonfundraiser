@@ -5,7 +5,7 @@ const googleSheetsModule = (function () {
         gapiLoadedPromise: null,
         loading: true,
         dom: {
-            $nameBox: $('[data-ui="name-box"]'),
+            $nameBox: $('[data-ui="name-box"]'), //asdf - fix this one
             $contentBox: $('[data-ui="content-box"]'),
             $spinnerBox: $('[data-ui="spinner-box"]'),
             $storyBox: $('[data-ui="story-box"]')
@@ -21,7 +21,6 @@ const googleSheetsModule = (function () {
     }
 
     const init = function () {
-        console.log('init - go 2')
         s.gapiLoadedPromise = waitForGAPI();
         s.gapiLoadedPromise.then(() => { }, () => {
             console.log('Error: failed to load gapi')
@@ -78,12 +77,16 @@ const googleSheetsModule = (function () {
     }
 
     const getLatestRunner = function () {
-        console.log('getLatestRunner 5 ...')
         s.gapiLoadedPromise.then(() => {
             getSheetData().then(() => {
                 const latestRunner = state.sheetData.nice[state.sheetData.nice.length - 1]
                 s.dom.$nameBox.text(latestRunner.name)
+                if(isNameTooLong(latestRunner.name)){
+                    s.dom.$nameBox.addClass('cl-a-bit-smaller')
+                }
+
                 hideBox(s.dom.$spinnerBox)
+                
                 showBox(s.dom.$contentBox)
             });
         })
@@ -92,7 +95,6 @@ const googleSheetsModule = (function () {
     const buildListOfRunners = function () {
         s.gapiLoadedPromise.then(() => {
             getSheetData().then(() => {
-                console.log('got the data!')
                 state.sheetData.nice.forEach((runner, i) => {
                     addRunner(runner)
                     if (i < (state.sheetData.nice.length - 1)) {
@@ -108,9 +110,10 @@ const googleSheetsModule = (function () {
 
     const addRunner = function (data, i) {
         //asdf - need to make this comment conditional!
+        const smallerClass = isNameTooLong(data.name)?'cl-a-bit-smaller':''
         let runnerMarkupString = `
         <div class="cl-wide-row cl-name-row">
-            <h2 class="cl-big-runner-name cl-text-shadow">${data.name}</h2>`
+            <h2 class="cl-big-runner-name cl-text-shadow ${smallerClass}">${data.name}</h2>`
         if (data.comment && data.comment.length > 0) {
             runnerMarkupString += `<p class="cl-runner-comment invisible cl-scroll-in">"${data.comment}"</p>`
         }
@@ -120,13 +123,22 @@ const googleSheetsModule = (function () {
         s.dom.$storyBox.append($runnerMarkup)
     }
 
+    // Check to see if any word in the name is too long, if so
+    // we can use this to add a css class to lower the font size
+    const isNameTooLong = function(name){
+        const maxWordLength = 9
+        const nameArr = name.split(' ')
+        return !!nameArr.find(word=>{
+            return word.length > maxWordLength
+        })
+    }
+
     const addScrollInListener = function () {
         var win = $(window);
         var allMods = $(".cl-scroll-in");
 
         // Already visible modules
         allMods.each(function (i, el) {
-            console.log('found one 2!')
             var el = $(el);
             if (el.visible(true)) {
                 el.removeClass("invisible");
@@ -136,7 +148,6 @@ const googleSheetsModule = (function () {
 
         // 
         win.scroll(function (event) {
-            console.log('yaggada 2')
             allMods.each(function (i, el) {
                 var el = $(el);
                 if (el.visible(true)) {
@@ -148,8 +159,6 @@ const googleSheetsModule = (function () {
 
         });
     }
-
-
 
     const addIcon = function () {
         const $iconMarkup = $(`
@@ -173,6 +182,7 @@ const googleSheetsModule = (function () {
         init,
         getSheetData,
         getLatestRunner,
-        buildListOfRunners
+        buildListOfRunners,
+        isNameTooLong
     }
 })();

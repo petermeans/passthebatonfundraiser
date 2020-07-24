@@ -42,6 +42,9 @@ h1.cl-big-runner-name, h2.cl-big-runner-name {
     margin-left: auto;
     line-height: 1;
 }
+h1.cl-big-runner-name.cl-a-bit-smaller, h2.cl-big-runner-name.cl-a-bit-smaller {
+    font-size: 36px;
+}
 
 .cl-text-shadow {
     font: bold 52px Helvetica, Arial, Sans-Serif;
